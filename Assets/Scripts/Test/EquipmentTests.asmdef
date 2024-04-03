@@ -1,0 +1,23 @@
+{
+    "name": "EquipmentTests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9b4af9f2869ab0d40bdb0debcfbad442",
+        "GUID:b6f1180f0651a3e40b899c16969cfbf7",
+        "GUID:15f2919dafe24d74d900d0ae6d899e87",
+        "GUID:c33ff8ae2de9faf4ead50b895caaa4d1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
