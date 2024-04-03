@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F60DD1ED-8420-F987-9D90-E55087773BC9}</ProjectGuid>
+    <ProjectGuid>{0BA76C3B-1BCE-D3C6-E8CB-227AA3EDC179}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Inventory</AssemblyName>
+    <AssemblyName>EquipmentCore</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -56,10 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentTypeComponent.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentType.cs" />
+    <Compile Include="Assets\Scripts\Equipment\EquipmentEffect.cs" />
+    <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
+    <Compile Include="Assets\Scripts\Equipment\DebugEquipment.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Inventory\Inventory.asmdef" />
+    <None Include="Assets\Scripts\Equipment\Equipment.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -739,10 +743,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Item.csproj">
-      <Project>{38B13B44-6A9F-5D84-2B86-A973E5924BE2}</Project>
-      <Name>Item</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

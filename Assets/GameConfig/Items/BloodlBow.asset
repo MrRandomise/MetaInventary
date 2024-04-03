@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22487d842414666b12f9ae5a7f89099, type: 3}
-  m_Name: BloodBlow
+  m_Name: BloodlBow
   m_EditorClassIdentifier: 
   item:
     name: BloodBlow

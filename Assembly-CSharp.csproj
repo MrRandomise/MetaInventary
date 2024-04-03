@@ -56,19 +56,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Item\Item.cs" />
-    <Compile Include="Assets\Scripts\Equipment\EquipmentTypeComponent.cs" />
     <Compile Include="Assets\Scripts\Installer\GameInstaller.cs" />
-    <Compile Include="Assets\Scripts\Equipment\EquipmentType.cs" />
-    <Compile Include="Assets\Scripts\Item\ItemFlags.cs" />
-    <Compile Include="Assets\Scripts\Item\ItemConfig.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Character\Character.cs" />
-    <Compile Include="Assets\Scripts\Equipment\EquipmentEffect.cs" />
-    <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
-    <Compile Include="Assets\Scripts\Character\Stats.cs" />
-    <Compile Include="Assets\Scripts\Equipment\DebugEquipment.cs" />
-    <Compile Include="Assets\Scripts\Character\DebugCharacter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -823,6 +811,22 @@
     <ProjectReference Include="Zenject.csproj">
       <Project>{558D7DF7-FA55-DB17-8F1B-80A52B08043F}</Project>
       <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="Character.csproj">
+      <Project>{4E7EDE89-CA28-CF1A-3F7C-A04F4F3A3035}</Project>
+      <Name>Character</Name>
+    </ProjectReference>
+    <ProjectReference Include="Equipment.csproj">
+      <Project>{0D8D71B4-EA2D-17CD-64C0-DE3064A83018}</Project>
+      <Name>Equipment</Name>
+    </ProjectReference>
+    <ProjectReference Include="Inventory.csproj">
+      <Project>{F60DD1ED-8420-F987-9D90-E55087773BC9}</Project>
+      <Name>Inventory</Name>
+    </ProjectReference>
+    <ProjectReference Include="Item.csproj">
+      <Project>{38B13B44-6A9F-5D84-2B86-A973E5924BE2}</Project>
+      <Name>Item</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
