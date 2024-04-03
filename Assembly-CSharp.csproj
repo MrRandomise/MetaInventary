@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CE9B2838-BAA5-58C9-FABF-B8A8DCBCAB94}</ProjectGuid>
+    <ProjectGuid>{6218F925-19A3-E712-7CD9-80B5AF927AE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,10 +53,10 @@
     <UnityVersion>2021.3.7f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Installer\GameInstaller.cs" />
+    <Compile Include="Assets\Scripts\Installer\Installer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -775,14 +775,14 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
@@ -804,29 +804,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{DAC93EAC-2C64-EBBD-D963-630E2C5BF313}</Project>
-      <Name>Zenject-Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Zenject.csproj">
-      <Project>{558D7DF7-FA55-DB17-8F1B-80A52B08043F}</Project>
-      <Name>Zenject</Name>
-    </ProjectReference>
-    <ProjectReference Include="Character.csproj">
-      <Project>{4E7EDE89-CA28-CF1A-3F7C-A04F4F3A3035}</Project>
-      <Name>Character</Name>
-    </ProjectReference>
     <ProjectReference Include="Equipment.csproj">
-      <Project>{0D8D71B4-EA2D-17CD-64C0-DE3064A83018}</Project>
+      <Project>{D5CD3674-96C1-F6C7-F3FE-6999E3B40F2D}</Project>
       <Name>Equipment</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{30E7C88F-ABBA-397E-9A1B-EA3B1DBC9E43}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Inventory.csproj">
-      <Project>{F60DD1ED-8420-F987-9D90-E55087773BC9}</Project>
+      <Project>{4A3A5B28-6340-B444-FA50-2BE3F4FF77E3}</Project>
       <Name>Inventory</Name>
     </ProjectReference>
     <ProjectReference Include="Item.csproj">
-      <Project>{38B13B44-6A9F-5D84-2B86-A973E5924BE2}</Project>
+      <Project>{4A2797C0-7642-D552-F793-F08ECD0BEDED}</Project>
       <Name>Item</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{7D3CE46E-1D1D-3551-6A20-944361A72BF9}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="Character.csproj">
+      <Project>{D0B7E9F7-5EFD-BBD7-18A8-5944F66F15BC}</Project>
+      <Name>Character</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

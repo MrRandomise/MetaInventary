@@ -15,7 +15,18 @@ MonoBehaviour:
   item:
     name: BloodBlow
     flags: 12
-    components: []
+    components:
+    - rid: 5552054413421707266
+    - rid: 5552054413421707267
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5552054413421707266
+      type: {class: Stats, ns: CharacterCore, asm: Character}
+      data:
+        <Name>k__BackingField: damage
+        <Value>k__BackingField: 20
+    - rid: 5552054413421707267
+      type: {class: EquipmentTypeComponent, ns: InventoryCore, asm: Equipment}
+      data:
+        <Type>k__BackingField: 4

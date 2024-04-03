@@ -1,10 +1,9 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
-using System.Reflection;
 using CharacterCore;
 
-namespace Debug
+namespace DebugTest
 {
     public class DebugCharacter : MonoBehaviour
     {
@@ -19,10 +18,10 @@ namespace Debug
         [Button]
         public void GetStats()
         {
-            var printer="";
-            foreach (var (key, value) in _character.GetStats()) 
-                printer+=($"{key} : {value} \n");
-            print(printer);
+            string stats="";
+            foreach (var (key, value) in _character.GetStats())
+                stats += ($"{key} : {value}; ");
+            print(stats);
         }
     }
 }

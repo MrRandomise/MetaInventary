@@ -12,7 +12,6 @@ namespace UniTest
         private Character _character;
         private Inventory _inventory;
         private Equipment _equipment;
-        private EquipmentEffect _equipmentEffector;
 
         private const string GoldBoots = "goldBoots";
         private const string AirBots = "airBots";
@@ -34,7 +33,6 @@ namespace UniTest
                 new KeyValuePair<string, int>(SpeedStat, 10));
             _inventory = new Inventory();
             _equipment = new Equipment();
-            _equipmentEffector = new EquipmentEffect(_character, _equipment);
             CreateItemsAndAddToInventory();
         }
 

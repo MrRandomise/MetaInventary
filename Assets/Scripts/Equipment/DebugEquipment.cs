@@ -3,7 +3,7 @@ using UnityEngine;
 using Zenject;
 using InventoryCore;
 
-namespace Debug
+namespace DebugTest
 {
     public class DebugEquipment : MonoBehaviour
     {
@@ -20,7 +20,6 @@ namespace Debug
         {
             var item = itemConfig.item.Clone();
             var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-
             _equipment.EquipItem(equipmentType.Type,item);
         }
 
@@ -29,7 +28,6 @@ namespace Debug
         {
             var item = itemConfig.item.Clone();
             var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-            
             _equipment.UnequipItem(equipmentType.Type,item);
         }
     }

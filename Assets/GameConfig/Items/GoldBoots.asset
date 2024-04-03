@@ -10,16 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22487d842414666b12f9ae5a7f89099, type: 3}
-  m_Name: Air Bots
+  m_Name: GoldBoots
   m_EditorClassIdentifier: 
   item:
-    name: Air Bots
+    name: Goldboots
     flags: 12
     components:
-    - rid: -2
-    - rid: -2
+    - rid: 5552054413421707270
+    - rid: 5552054413421707271
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5552054413421707270
+      type: {class: Stats, ns: CharacterCore, asm: Character}
+      data:
+        <Name>k__BackingField: speed
+        <Value>k__BackingField: 10
+    - rid: 5552054413421707271
+      type: {class: EquipmentTypeComponent, ns: InventoryCore, asm: Equipment}
+      data:
+        <Type>k__BackingField: 0

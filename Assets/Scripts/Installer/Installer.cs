@@ -3,7 +3,7 @@ using CharacterCore;
 using Zenject;
 using InventoryCore;
 
-public class GameInstaller : MonoInstaller
+public class Installer : MonoInstaller
 {
     public override void InstallBindings()
     {
@@ -13,6 +13,7 @@ public class GameInstaller : MonoInstaller
             new("health", 12),
             new("speed", 5)
         };
+
         Container.Bind<Character>().AsSingle().WithArguments(stats).NonLazy();
 
         Container.Bind<Inventory>().AsSingle().NonLazy();

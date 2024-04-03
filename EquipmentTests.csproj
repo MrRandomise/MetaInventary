@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{57E86727-8051-E091-EF32-A9D969E2A01C}</ProjectGuid>
+    <ProjectGuid>{3B251429-D28F-7989-FD02-0499C65A42FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>EquipmentTests</AssemblyName>
@@ -53,7 +53,7 @@
     <UnityVersion>2021.3.7f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Test\EquipmentUniTests.cs" />
@@ -707,19 +707,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Character.csproj">
-      <Project>{4E7EDE89-CA28-CF1A-3F7C-A04F4F3A3035}</Project>
+      <Project>{D0B7E9F7-5EFD-BBD7-18A8-5944F66F15BC}</Project>
       <Name>Character</Name>
     </ProjectReference>
     <ProjectReference Include="Equipment.csproj">
-      <Project>{0D8D71B4-EA2D-17CD-64C0-DE3064A83018}</Project>
+      <Project>{D5CD3674-96C1-F6C7-F3FE-6999E3B40F2D}</Project>
       <Name>Equipment</Name>
     </ProjectReference>
     <ProjectReference Include="Inventory.csproj">
-      <Project>{F60DD1ED-8420-F987-9D90-E55087773BC9}</Project>
+      <Project>{4A3A5B28-6340-B444-FA50-2BE3F4FF77E3}</Project>
       <Name>Inventory</Name>
     </ProjectReference>
     <ProjectReference Include="Item.csproj">
-      <Project>{38B13B44-6A9F-5D84-2B86-A973E5924BE2}</Project>
+      <Project>{4A2797C0-7642-D552-F793-F08ECD0BEDED}</Project>
       <Name>Item</Name>
     </ProjectReference>
   </ItemGroup>
