@@ -57,19 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Item\Item.cs" />
-    <Compile Include="Assets\Scripts\Test\DebugEquipment.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentTypeComponent.cs" />
     <Compile Include="Assets\Scripts\Installer\GameInstaller.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentType.cs" />
-    <Compile Include="Assets\Scripts\Test\DebugCharacter.cs" />
     <Compile Include="Assets\Scripts\Item\ItemFlags.cs" />
     <Compile Include="Assets\Scripts\Item\ItemConfig.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Equipment\EquipmentEffect.cs" />
-    <Compile Include="Assets\Scripts\Test\EquipmentTests.cs" />
     <Compile Include="Assets\Scripts\Equipment\Equipment.cs" />
     <Compile Include="Assets\Scripts\Character\Stats.cs" />
+    <Compile Include="Assets\Scripts\Equipment\DebugEquipment.cs" />
+    <Compile Include="Assets\Scripts\Character\DebugCharacter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
