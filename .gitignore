@@ -1,0 +1,5 @@
+*.exe
+Logs/
+Library/
+Temp/
+[Oo]bj/
