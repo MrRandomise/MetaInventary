@@ -28,9 +28,9 @@ namespace UniTest
         public void Init()
         {
             _character = new Character(
-                new KeyValuePair<string, int>(DamageStat, 5),
-                new KeyValuePair<string, int>(HealthStat, 20),
-                new KeyValuePair<string, int>(SpeedStat, 10));
+                new KeyValuePair<string, int>(DamageStat, 11),
+                new KeyValuePair<string, int>(HealthStat, 12),
+                new KeyValuePair<string, int>(SpeedStat, 5));
             _inventory = new Inventory();
             _equipment = new Equipment();
             CreateItemsAndAddToInventory();
@@ -38,45 +38,43 @@ namespace UniTest
 
         private void CreateItemsAndAddToInventory()
         {
-            var windBoots = new Item(GoldBoots, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(DamageStat, 12),
-                new Stats(SpeedStat, 7),
+            var goldBoots = new Item(GoldBoots, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(SpeedStat, 10),
                 new EquipmentTypeComponent(EquipmentType.LEGS)
             );
 
-            var electricBoots = new Item(AirBots, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(HealthStat, 11),
-                new Stats(SpeedStat, 12),
-                new Stats(DamageStat, 8),
+            var airBots = new Item(AirBots, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(HealthStat, 10),
+                new Stats(SpeedStat, 10),
                 new EquipmentTypeComponent(EquipmentType.LEGS)
             );
 
-            var fireSword = new Item(StrongSword, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(DamageStat, 54),
+            var strongSword = new Item(StrongSword, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(DamageStat, 15),
                 new EquipmentTypeComponent(EquipmentType.RIGHT_HAND)
             );
 
-            var iceShield = new Item(MetallShield, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(HealthStat, 32),
+            var metallShield = new Item(MetallShield, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(HealthStat, 15),
                 new EquipmentTypeComponent(EquipmentType.LEFT_HAND)
             );
 
-            var plateMail = new Item(BloodMail, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(HealthStat, 56),
+            var bloodMail = new Item(BloodMail, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(HealthStat, 16),
                 new EquipmentTypeComponent(EquipmentType.BODY)
             );
 
-            var divineHelmet = new Item(Helmet, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
-                new Stats(HealthStat, 41),
+            var helmet = new Item(Helmet, ItemFlags.EQUIPPABLE | ItemFlags.EFFECTIBLE,
+                new Stats(HealthStat, 12),
                 new EquipmentTypeComponent(EquipmentType.HEAD)
             );
 
-            _inventory.AddItem(windBoots);
-            _inventory.AddItem(electricBoots);
-            _inventory.AddItem(fireSword);
-            _inventory.AddItem(iceShield);
-            _inventory.AddItem(plateMail);
-            _inventory.AddItem(divineHelmet);
+            _inventory.AddItem(goldBoots);
+            _inventory.AddItem(airBots);
+            _inventory.AddItem(strongSword);
+            _inventory.AddItem(metallShield);
+            _inventory.AddItem(bloodMail);
+            _inventory.AddItem(helmet);
         }
         
         
@@ -89,7 +87,7 @@ namespace UniTest
         public void EquipItem(string itemName, EquipmentType type)
         {
             _inventory.FindItem(itemName, out var item);
-            _equipment.EquipItem(item);
+            _equipment.EquipItem(item, _character);
             Assert.AreEqual(true, _equipment.HasItem(type));
         }
         
@@ -102,8 +100,8 @@ namespace UniTest
         public void UnequipItem(string itemName, EquipmentType type)
         {
             _inventory.FindItem(itemName, out var item);
-            _equipment.EquipItem(item);
-            _equipment.UnequipItem(item);
+            _equipment.EquipItem(item, _character);
+            _equipment.UnequipItem(item, _character);
             Assert.AreEqual(false, _equipment.HasItem(type));
         }
 
@@ -122,7 +120,7 @@ namespace UniTest
             _inventory.FindItem(itemName, out var item);
             var itemStatsArray = item.GetComponents<Stats>();
 
-            _equipment.EquipItem(item);
+            _equipment.EquipItem(item, _character);
             var currentStats= _character.GetStats();
             
             for (var i = 0; i < stats.Length; i++)
@@ -147,10 +145,11 @@ namespace UniTest
             stats.CopyTo(cachedStats,0);
             
             _inventory.FindItem(itemName, out var item);
-            _equipment.EquipItem(item);
-            _equipment.UnequipItem(item);
 
-            var currentStats= _character.GetStats();
+            _equipment.EquipItem(item, _character);
+            _equipment.UnequipItem(item, _character);
+
+            var currentStats = _character.GetStats();
             
             for (var i = 0; i < stats.Length; i++)
             {
@@ -162,11 +161,13 @@ namespace UniTest
         public void SwapItems()
         {
             _inventory.FindItem(GoldBoots, out var item);
-            _equipment.EquipItem(item);
+
+            _equipment.EquipItem(item, _character);
             Assert.AreEqual(true, _equipment.HasItem(EquipmentType.LEGS));
 
             _inventory.FindItem(AirBots, out item);
-            _equipment.EquipItem(item);
+
+            _equipment.EquipItem(item, _character);
             Assert.AreEqual(true, _equipment.HasItem(EquipmentType.LEGS));
         }
 
@@ -175,8 +176,8 @@ namespace UniTest
         {
             _inventory.FindItem(GoldBoots, out var item);
 
-            _equipment.EquipItem(item);
-            _equipment.EquipItem(item);
+            _equipment.EquipItem(item, _character);
+            _equipment.EquipItem(item, _character);
             Assert.AreEqual(true, _equipment.HasItem(EquipmentType.LEGS));
         }
 
@@ -184,10 +185,11 @@ namespace UniTest
         public void UnequipTwice()
         {
             _inventory.FindItem(GoldBoots, out var item);
-            _equipment.EquipItem(item);
 
-            _equipment.UnequipItem(item);
-            _equipment.UnequipItem(item);
+            _equipment.EquipItem(item, _character);
+
+            _equipment.UnequipItem(item, _character);
+            _equipment.UnequipItem(item, _character);
             Assert.AreEqual(false, _equipment.HasItem(EquipmentType.LEGS));
         }
         
@@ -195,7 +197,7 @@ namespace UniTest
         public void UnequipEmpty()
         {
             _inventory.FindItem(GoldBoots, out var item);
-            _equipment.UnequipItem(item);
+            _equipment.UnequipItem(item, _character);
             Assert.AreEqual(false, _equipment.HasItem(EquipmentType.LEGS));
         }
     }

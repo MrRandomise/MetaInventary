@@ -1,20 +1,28 @@
+using CharacterCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Zenject;
+using UnityEngine;
 
 namespace InventoryCore
 {
     [Serializable]
     public sealed class Equipment
     {
+        private Character _character;
+        private EquipmentEffect _equipmentEffect = new EquipmentEffect();
         private readonly Dictionary<EquipmentType, Item> _equipment = new();
 
-        public event Action<Item> OnItemEquipped;
-        public event Action<Item> OnItemUnequipped;
+        [Inject]
+        private void conctruct(Character character)
+        {
+            _character = character;
+        }
 
         public void Setup(params KeyValuePair<EquipmentType, Item>[] items)
         {
-            foreach (var itemPair in items) EquipItem(itemPair.Key, itemPair.Value);
+            foreach (var itemPair in items) EquipItem(itemPair.Value, _character);
         }
 
         private Item GetItem(EquipmentType type)
@@ -29,20 +37,22 @@ namespace InventoryCore
             return hasItem;
         }
 
-        public void UnequipItem(EquipmentType type, Item item)
+        public void UnequipItem(Item item, Character character)
         {
-            if (!_equipment.ContainsKey(type)) return;
+            var equipmentType = item.GetComponent<EquipmentTypeComponent>();
+            if (!_equipment.ContainsKey(equipmentType.Type)) return;
 
-            _equipment.Remove(type);
-            OnItemUnequipped?.Invoke(item);
+            _equipment.Remove(equipmentType.Type);
+            _equipmentEffect.RemoveEffectFromCharacter(item, character);
         }
 
-        public void EquipItem(EquipmentType type, Item item)
+        public void EquipItem(Item item, Character character)
         {
-            if (HasItem(type)) UnequipItem(type, _equipment[type]);
+            var equipmentType = item.GetComponent<EquipmentTypeComponent>();
+            if (HasItem(equipmentType.Type)) UnequipItem(_equipment[equipmentType.Type], character);
 
-            _equipment.Add(type, item);
-            OnItemEquipped?.Invoke(item);
+            _equipment.Add(equipmentType.Type, item);
+            _equipmentEffect.AddEffectToCharacter(item, character);
         }
 
         public bool HasItem(EquipmentType type)
@@ -53,18 +63,6 @@ namespace InventoryCore
         public KeyValuePair<EquipmentType, Item>[] GetItems()
         {
             return _equipment.Select(item => new KeyValuePair<EquipmentType, Item>(item.Key, item.Value)).ToArray();
-        }
-
-        public void EquipItem(Item item)
-        {
-            var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-            EquipItem(equipmentType.Type, item);
-        }
-
-        public void UnequipItem(Item item)
-        {
-            var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-            UnequipItem(equipmentType.Type, item);
         }
     }
 }

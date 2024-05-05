@@ -18,6 +18,7 @@ MonoBehaviour:
     components:
     - rid: 5552054413421707282
     - rid: 5552054413421707283
+    - rid: 9131083557841666048
   references:
     version: 2
     RefIds:
@@ -30,3 +31,8 @@ MonoBehaviour:
       type: {class: EquipmentTypeComponent, ns: InventoryCore, asm: Equipment}
       data:
         <Type>k__BackingField: 0
+    - rid: 9131083557841666048
+      type: {class: Stats, ns: CharacterCore, asm: Character}
+      data:
+        <Name>k__BackingField: health
+        <Value>k__BackingField: 10

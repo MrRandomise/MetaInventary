@@ -18,6 +18,5 @@ public class Installer : MonoInstaller
 
         Container.Bind<Inventory>().AsSingle().NonLazy();
         Container.Bind<Equipment>().AsSingle().NonLazy();
-        Container.Bind<EquipmentEffect>().AsSingle().NonLazy();
     }
 }

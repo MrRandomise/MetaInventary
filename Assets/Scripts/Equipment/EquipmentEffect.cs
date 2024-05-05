@@ -1,29 +1,10 @@
-using System;
 using CharacterCore;
 
 namespace InventoryCore
 {
-    public class EquipmentEffect : IDisposable
+    public class EquipmentEffect
     {
-        private readonly Character _character;
-        private readonly Equipment _equipment;
-
-        public EquipmentEffect(Character character, Equipment equipment)
-        {
-            _character = character;
-            _equipment = equipment;
-
-            _equipment.OnItemEquipped += AddEffectToCharacter;
-            _equipment.OnItemUnequipped += RemoveEffectFromCharacter;
-        }
-
-        public void Dispose()
-        {
-            _equipment.OnItemEquipped -= AddEffectToCharacter;
-            _equipment.OnItemUnequipped -= RemoveEffectFromCharacter;
-        }
-
-        private void AddEffectToCharacter(Item obj)
+        public void AddEffectToCharacter(Item obj, Character character)
         {
             var stats = obj.GetComponents<Stats>();
             if (stats.Length==0)
@@ -31,12 +12,12 @@ namespace InventoryCore
             
             foreach (var stat in stats)
             {
-                var statValue = _character.GetStat(stat.Name);
-                _character.SetStat(stat.Name, statValue + stat.Value);
+                var statValue = character.GetStat(stat.Name);
+                character.SetStat(stat.Name, statValue + stat.Value);
             }
         }
 
-        private void RemoveEffectFromCharacter(Item obj)
+        public void RemoveEffectFromCharacter(Item obj, Character character)
         {
             var stats = obj.GetComponents<Stats>();
             if (stats.Length==0)
@@ -44,8 +25,8 @@ namespace InventoryCore
 
             foreach (var stat in stats)
             {
-                var statValue = _character.GetStat(stat.Name);
-                _character.SetStat(stat.Name, statValue - stat.Value);
+                var statValue = character.GetStat(stat.Name);
+                character.SetStat(stat.Name, statValue - stat.Value);
             }
         }
     }

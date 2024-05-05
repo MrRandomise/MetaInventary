@@ -2,17 +2,20 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 using InventoryCore;
+using CharacterCore;
 
 namespace DebugTest
 {
     public class DebugEquipment : MonoBehaviour
     {
+        private Character _character;
         private Equipment _equipment;
 
         [Inject]
-        public void Construct(Equipment equipment)
+        public void Construct(Equipment equipment, Character character)
         {
             _equipment = equipment;
+            _character = character;
         }
 
         [Button]
@@ -20,7 +23,7 @@ namespace DebugTest
         {
             var item = itemConfig.item.Clone();
             var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-            _equipment.EquipItem(equipmentType.Type,item);
+            _equipment.EquipItem(item, _character);
         }
 
         [Button]
@@ -28,7 +31,7 @@ namespace DebugTest
         {
             var item = itemConfig.item.Clone();
             var equipmentType = item.GetComponent<EquipmentTypeComponent>();
-            _equipment.UnequipItem(equipmentType.Type,item);
+            _equipment.UnequipItem(item, _character);
         }
     }
 }
